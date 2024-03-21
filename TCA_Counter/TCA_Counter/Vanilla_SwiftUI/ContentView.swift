@@ -36,12 +36,12 @@ final class CounterFeature: ObservableObject {
     func getFactButtonTapped() async {
         self.fact = nil
         self.isLoadingFact = true
-            do {
-                let result = try await NetworkService.fetch(number: self.count)
-                self.factResponse(fact: result)
-            } catch {
-                print(error.localizedDescription)
-            }
+        do {
+            let result = try await NetworkService.fetch(number: self.count)
+            self.factResponse(fact: result)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     private func factResponse(fact: String) {
@@ -73,8 +73,8 @@ struct ContentView: View {
                     HStack {
                         Text("데이터 가져오기")
                         if self.counterFeature.isLoadingFact {
-                          Spacer()
-                          ProgressView()
+                            Spacer()
+                            ProgressView()
                         }
                     }
                 }

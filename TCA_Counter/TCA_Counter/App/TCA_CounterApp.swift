@@ -10,11 +10,14 @@ import SwiftUI
 
 @main
 struct TCA_CounterApp: App {
-    @StateObject var counterFeature: CounterFeature = CounterFeature()
+//    @StateObject var counterFeature: CounterFeature = CounterFeature()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(counterFeature)
+            ContentView_TCA(store: Store(initialState: CounterFeature_TCA.State(), reducer: {
+                CounterFeature_TCA()
+            }))
+//            ContentView()
+//                .environmentObject(counterFeature)
         }
     }
 }
